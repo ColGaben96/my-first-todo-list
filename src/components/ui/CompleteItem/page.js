@@ -4,7 +4,7 @@ export function CompleteItemButton({status}) {
     const checked = status ? styles.complete : styles.incomplete;
     return (
         <div>
-            <button className={`${checked}`}><p>{<MdDone/>}</p></button>
+            <button className={`${checked}`}><p><MdDone/></p></button>
         </div>
     );
 }
