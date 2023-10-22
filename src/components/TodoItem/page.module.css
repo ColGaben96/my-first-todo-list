@@ -1,0 +1,50 @@
+.todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 95%;
+    margin: 40px;
+    padding: 10px;
+    border: 1px solid #737373;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #ccc;
+    background-color: #dedbdb;
+    color: #000;
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+}
+.todo:hover {
+    background-color: white;
+}
+.todoCompleted {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 95%;
+    margin: 40px;
+    padding: 10px;
+    border: 1px solid #737373;
+    border-radius: 15px;
+    background-color: rgba(2, 148, 26, 0.84);
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+}
+.todoCompleted:hover {
+    background-color: rgba(5, 225, 41, 0.84);
+}
+.todoTitle {
+    justify-content: center;
+    text-align: center;
+    margin-top: 1px;
+    font-size: 3rem;
+}
+.todoContent {
+    justify-content: start;
+    margin-left: 5rem;
+    font-size: 1.2rem;
+}
+.todoDueDate {
+    margin-top: 1px;
+    text-align: end;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 0,
+    "title": "Crear un todo list",
+    "content": "Debe tener un título, contenido opcional, fecha opcional y un estado de completado",
+    "dueDate": "2023-10-22",
+    "isCompleted": false
+  },
+  {
+    "id": 1,
+    "title": "Importar esta lista",
+    "content": "",
+    "dueDate": "2023-10-21",
+    "isCompleted": true
+  },
+  {
+    "id": 2,
+    "title": "Desplegar el proyecto",
+    "content": "Debe estar en GitHub Pages",
+    "dueDate": "",
+    "isCompleted": false
+  }
+]

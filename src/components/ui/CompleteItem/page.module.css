@@ -1,0 +1,32 @@
+.incomplete {
+    padding: 5px;
+    margin: 20px;
+    width: 70px;
+    display: grid;
+    justify-content: start;
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    font-size: 1.8rem;
+    background-color: #ededed;
+    border-radius: 100px;
+}
+.incomplete:hover {
+    background-color: #05e129;
+}
+.complete {
+    padding: 5px;
+    margin: 20px;
+    width: 70px;
+    display: grid;
+    justify-content: start;
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    font-size: 1.8rem;
+    background-color: #05e129;
+    border-radius: 100px;
+}
+.complete:hover {
+    background-color: #d90101;
+}
