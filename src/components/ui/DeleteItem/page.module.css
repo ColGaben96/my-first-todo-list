@@ -1,0 +1,17 @@
+.delete {
+    padding: 5px;
+    margin: 20px;
+    width: 70px;
+    display: grid;
+    justify-content: center;
+    text-align: right;
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    font-size: 1.8rem;
+    background-color: #c00e0e;
+    border-radius: 100px;
+}
+.delete:hover {
+    background-color: #ef1313;
+}
