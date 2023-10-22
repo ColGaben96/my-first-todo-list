@@ -1,7 +1,7 @@
 .create {
-    padding: 5px;
-    margin: 20px;
-    width: 70px;
+    padding: 0.5rem;
+    margin: 2.5rem;
+    width: 96%;
     display: grid;
     justify-content: center;
     cursor: default;
@@ -9,7 +9,7 @@
     color: black;
     font-size: 1.8rem;
     background-color: #0ec0b1;
-    border-radius: 100px;
+    border-radius: 15px;
 }
 .create:hover {
     background-color: #13efdd;

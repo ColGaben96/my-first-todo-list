@@ -1,14 +1,14 @@
 .incomplete {
     padding: 5px;
-    margin: 20px;
-    width: 70px;
+    margin-left: 1rem;
+    width: 100px;
     display: grid;
     justify-content: center;
     cursor: default;
     transition: all 0.3s ease-in-out;
     color: black;
     font-size: 1.8rem;
-    background-color: #ededed;
+    background-color: #dedbdb;
     border-radius: 100px;
 }
 .incomplete:hover {
@@ -16,17 +16,14 @@
 }
 .complete {
     padding: 5px;
-    margin: 20px;
-    width: 70px;
+    margin-left: 1rem;
+    width: 100px;
     display: grid;
     justify-content: center;
     cursor: default;
     transition: all 0.3s ease-in-out;
-    color: black;
+    border: #05e129 2px solid;
     font-size: 1.8rem;
     background-color: #05e129;
     border-radius: 100px;
-}
-.complete:hover {
-    background-color: #d90101;
 }

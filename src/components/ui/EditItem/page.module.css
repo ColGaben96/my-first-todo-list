@@ -1,7 +1,8 @@
 .edit {
     padding: 5px;
-    margin: 20px;
-    width: 70px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
     display: grid;
     justify-content: center;
     cursor: default;
