@@ -1,10 +1,10 @@
 import styles from './page.module.css';
 import {MdEdit} from "react-icons/md";
 
-export function EditItemButton() {
+export function EditItemButton({onEdit}) {
     return (
         <div>
-            <button className={styles.edit}><p><MdEdit/></p></button>
+            <button className={styles.edit} onClick={onEdit}><p><MdEdit/></p></button>
         </div>
     );
 }

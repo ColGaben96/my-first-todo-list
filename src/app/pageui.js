@@ -18,7 +18,9 @@ export function Home() {
                             loading,
                             searchedTodos,
                             completeTodo,
+                            editTodo,
                             deleteTodo,
+                            saveTodo,
                             totalTodos,
                             completedTodos,
                             searchValue,
@@ -30,7 +32,9 @@ export function Home() {
                                 total={totalTodos}
                                 completed={completedTodos}/>
                             <div className={styles.searchGrid}>
-                                <TodoSearch/>
+                                <TodoSearch
+                                searchValue={searchValue}
+                                setSearchValue={setSearchValue}/>
                                 <CreateItemButton/>
                             </div>
                             <TodoList>
@@ -57,13 +61,11 @@ export function Home() {
                                             content={todo.content}
                                             dueDate={todo.dueDate}
                                             isCompleted={todo.isCompleted}
-                                            onComplete={() => completeTodo({
-                                                variables: {id: todo.id, isCompleted: !todo.isCompleted}
-                                            })}
-                                            onEdit={() => console.log("Editando")}
-                                            onDelete={() => deleteTodo({
-                                                variables: {id: todo.id}
-                                            })}
+                                            isEditable={todo.isEditable}
+                                            onComplete={() => completeTodo(todo.id)}
+                                            onEdit={() => editTodo(todo.id)}
+                                            onDelete={() => deleteTodo(todo.id)}
+                                            onSave={() => saveTodo(todo.id)}
                                         />
                                     ))
                                 }

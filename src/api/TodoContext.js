@@ -14,25 +14,48 @@ function TodoProvider({children}) {
     const completedTodos = todos.filter(todo => !!todo.isCompleted).length;
     const totalTodos = todos.length;
     const searchedTodos = todos.filter(
-        todo => todo.title.toLowerCase().includes(searchValue.toLowerCase())
+        (todo) => {
+            const todoText = todo.title.toLowerCase();
+            const searchText = searchValue.toLowerCase();
+            return todoText.includes(searchText);
+        }
     );
-    const completeTodo = (text) => {
+    const completeTodo = (id) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex(
-            (todo) => todo.text === text
+            (todo) => todo.id === id
         );
-        newTodos[todoIndex].completed = true;
+        newTodos[todoIndex].isCompleted = true;
         saveTodos(newTodos);
     };
 
-    const deleteTodo = (text) => {
+    const editTodo = (id) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex(
-            (todo) => todo.text === text
+            (todo) => todo.id === id
+        );
+        newTodos[todoIndex].isEditable = true;
+        saveTodos(newTodos);
+    };
+
+    const deleteTodo = (id) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex(
+            (todo) => todo.id === id
         );
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
     };
+
+    const saveTodo = (id) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex(
+            (todo) => todo.id === id
+        );
+        newTodos[todoIndex].isEditable = false;
+        saveTodos(newTodos);
+    };
+
     return (
         <TodoContext.Provider value={{
             loading,
@@ -43,7 +66,9 @@ function TodoProvider({children}) {
             setSearchValue,
             searchedTodos,
             completeTodo,
+            editTodo,
             deleteTodo,
+            saveTodo
         }}>
             {children}
         </TodoContext.Provider>

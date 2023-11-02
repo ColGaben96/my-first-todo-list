@@ -1,0 +1,17 @@
+.save {
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
+    display: grid;
+    justify-content: center;
+    cursor: default;
+    transition: all 0.3s ease-in-out;
+    color: black;
+    font-size: 1.8rem;
+    background-color: #0ec0b1;
+    border-radius: 100px;
+}
+.save:hover {
+    background-color: #13efdd;
+}

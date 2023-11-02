@@ -1,10 +1,10 @@
 import styles from './page.module.css';
 import {MdDelete} from "react-icons/md";
 
-export function DeleteItemButton() {
+export function DeleteItemButton({onDelete}) {
     return (
         <div>
-            <button className={styles.delete}><p><MdDelete/></p></button>
+            <button className={styles.delete} onClick={onDelete}><p><MdDelete/></p></button>
         </div>
     );
 }
