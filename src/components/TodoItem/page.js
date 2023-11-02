@@ -4,9 +4,28 @@ import {EditItemButton} from "@/components/ui/EditItem/page";
 import {DeleteItemButton} from "@/components/ui/DeleteItem/page";
 import {MdOutlineCalendarMonth} from "react-icons/md";
 import {SaveItemButton} from "@/components/ui/SaveItem/page";
-export function TodoItem({isCompleted, isEditable, dueDate, title, content, onComplete, onEdit, onDelete, onSave}) {
+import {useState} from "react";
+export function TodoItem({isCompleted, isEditable, dueDate, setDueDate, title, setTitle, content, setContent, onComplete, onEdit, onDelete, onSave}) {
     const completed = isCompleted ? styles.todoCompleted : styles.todo;
     const editable = isEditable ? styles.todoEditable : styles.todo;
+    const [todoTitle, setTodoTitle] = useState(title);
+    const [todoContent, setTodoContent] = useState(content);
+    const [todoDueDate, setTodoDueDate] = useState(dueDate);
+    const handleTitleChange = (event) => {
+        setTodoTitle(event.target.value);
+        setTitle(event.target.value);
+        setTitle(title);
+    }
+    const handleContentChange = (event) => {
+        setTodoContent(event.target.value);
+        setContent(event.target.value);
+        content = todoContent;
+    }
+    const handleDueDateChange = (event) => {
+        setTodoDueDate(event.target.value);
+        setDueDate(event.target.value);
+        dueDate = todoDueDate;
+    }
     if (isCompleted) {
         return (
             <div className={`${completed}`}>
@@ -28,18 +47,16 @@ export function TodoItem({isCompleted, isEditable, dueDate, title, content, onCo
                 </div>
             </div>
         );
-    } else if (isEditable) {
+    }
+    else if (isEditable) {
         return (
             <div className={`${editable}`}>
-                <div className={styles.grid3col}>
-                    <div className={styles.todoMark}>
-                        <CompleteItemButton
-                            status={isCompleted}
-                            onComplete={onComplete}/>
-                    </div>
+                <div className={styles.grid2col}>
                     <input
                         className={styles.todoTitle}
-                        value={title}/>
+                        type={"text"}
+                        value={todoTitle}
+                        onChange={handleTitleChange}/>
                     <div className={styles.todoControls}>
                         <SaveItemButton
                             onSave={onSave}/>
@@ -49,13 +66,18 @@ export function TodoItem({isCompleted, isEditable, dueDate, title, content, onCo
                 </div>
                 <div className={styles.grid2col}>
                     <input className={styles.todoContent}
-                            value={content}/>
+                           type={"text"}
+                           value={todoContent}
+                            onChange={handleContentChange}/>
                     <input className={styles.todoDueDate}
-                        value={dueDate}/>
+                           type={"date"}
+                           value={todoDueDate}
+                            onChange={handleDueDateChange}/>
                 </div>
             </div>
         );
-    } else {
+    }
+    else {
         return (
             <div className={`${completed}`}>
                 <div className={styles.grid3col}>

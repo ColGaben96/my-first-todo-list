@@ -47,28 +47,30 @@ function TodoProvider({children}) {
         saveTodos(newTodos);
     };
 
-    const saveTodo = (id) => {
+    const saveTodo = (id, newTodo) => {
         const newTodos = [...todos];
         const todoIndex = newTodos.findIndex(
             (todo) => todo.id === id
         );
+        newTodos[todoIndex] = newTodo;
         newTodos[todoIndex].isEditable = false;
+        console.log(newTodos[todoIndex]);
         saveTodos(newTodos);
     };
 
     return (
         <TodoContext.Provider value={{
-            loading,
             error,
-            totalTodos,
-            completedTodos,
-            searchValue,
-            setSearchValue,
+            loading,
             searchedTodos,
             completeTodo,
             editTodo,
             deleteTodo,
-            saveTodo
+            saveTodo,
+            totalTodos,
+            completedTodos,
+            searchValue,
+            setSearchValue
         }}>
             {children}
         </TodoContext.Provider>

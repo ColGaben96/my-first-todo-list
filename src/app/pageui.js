@@ -4,10 +4,25 @@ import {TodoList} from "@/components/TodoList/page";
 import {TodoSearch} from "@/components/TodoSearch/page";
 import {TodoCounter} from "@/components/TodoCounter/page";
 import {CreateItemButton} from "@/components/ui/CreateItem/page";
-import {TodoContext} from "@/api/TodoContext";
+import {TodoContext, TodoProvider} from "@/api/TodoContext";
 import {TodoItem} from "@/components/TodoItem/page";
 
 export function Home() {
+    function setTitle(title) {
+        return title;
+    }
+
+    function setContent(content) {
+        return content;
+    }
+
+    function setDueDate(dueDate) {
+        return dueDate;
+    }
+
+    const handleSave = (todo) => {
+        TodoProvider.saveTodo(todo.id, todo);
+    }
     return (
         <>
             <TodoContext.Consumer>
@@ -24,7 +39,7 @@ export function Home() {
                             totalTodos,
                             completedTodos,
                             searchValue,
-                            setSearchValue,
+                            setSearchValue
                         }
                     ) => (
                         <div>
@@ -65,7 +80,10 @@ export function Home() {
                                             onComplete={() => completeTodo(todo.id)}
                                             onEdit={() => editTodo(todo.id)}
                                             onDelete={() => deleteTodo(todo.id)}
-                                            onSave={() => saveTodo(todo.id)}
+                                            onSave={handleSave}
+                                            setTitle={(title) => setTitle(title)}
+                                            setContent={(content) => setContent(content)}
+                                            setDueDate={(dueDate) => setDueDate(dueDate)}
                                         />
                                     ))
                                 }
