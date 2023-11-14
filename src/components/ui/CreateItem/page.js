@@ -4,7 +4,7 @@ import {MdAdd} from "react-icons/md";
 export function CreateItemButton() {
     return (
         <div>
-            <button className={styles.create}><p><MdAdd/></p></button>
+            <button className={styles.create}><p><MdAdd/> Crear TODO</p></button>
         </div>
     );
 }

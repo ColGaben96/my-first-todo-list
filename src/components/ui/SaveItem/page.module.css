@@ -1,7 +1,8 @@
-.create {
-    padding: 0.5rem;
-    margin: 2.5rem;
-    width: 96%;
+.save {
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
     display: grid;
     justify-content: center;
     cursor: default;
@@ -9,8 +10,8 @@
     color: black;
     font-size: 1.8rem;
     background-color: #0ec0b1;
-    border-radius: 15px;
+    border-radius: 100px;
 }
-.create:hover {
+.save:hover {
     background-color: #13efdd;
 }
