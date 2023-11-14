@@ -4,25 +4,25 @@ import {TodoList} from "@/components/TodoList/page";
 import {TodoSearch} from "@/components/TodoSearch/page";
 import {TodoCounter} from "@/components/TodoCounter/page";
 import {CreateItemButton} from "@/components/ui/CreateItem/page";
-import {TodoContext, TodoProvider} from "@/api/TodoContext";
+import {TodoContext} from "@/api/TodoContext";
 import {TodoItem} from "@/components/TodoItem/page";
 
 export function Home() {
-    function setTitle(title) {
-        return title;
+    function setTitle(title, todo) {
+        todo.title = title;
+        return todo;
     }
 
-    function setContent(content) {
-        return content;
+    function setContent(content, todo) {
+        todo.content = content;
+        return todo;
     }
 
-    function setDueDate(dueDate) {
-        return dueDate;
+    function setDueDate(dueDate, todo) {
+        todo.dueDate = dueDate;
+        return todo;
     }
 
-    const handleSave = (todo) => {
-        TodoProvider.saveTodo(todo.id, todo);
-    }
     return (
         <>
             <TodoContext.Consumer>
@@ -80,10 +80,10 @@ export function Home() {
                                             onComplete={() => completeTodo(todo.id)}
                                             onEdit={() => editTodo(todo.id)}
                                             onDelete={() => deleteTodo(todo.id)}
-                                            onSave={handleSave}
-                                            setTitle={(title) => setTitle(title)}
-                                            setContent={(content) => setContent(content)}
-                                            setDueDate={(dueDate) => setDueDate(dueDate)}
+                                            onSave={() => saveTodo(todo.id, todo)}
+                                            setTitle={(title) => setTitle(title, todo)}
+                                            setContent={(content) => setContent(content, todo)}
+                                            setDueDate={(dueDate) => setDueDate(dueDate, todo)}
                                         />
                                     ))
                                 }
