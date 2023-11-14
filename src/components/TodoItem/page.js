@@ -53,7 +53,7 @@ export function TodoItem({isCompleted, isEditable, dueDate, setDueDate, title, s
             <div className={`${editable}`}>
                 <div className={styles.grid2col}>
                     <input
-                        className={styles.todoTitle}
+                        className={styles.todoTitleEditable}
                         type={"text"}
                         value={todoTitle}
                         onChange={handleTitleChange}/>
@@ -65,11 +65,11 @@ export function TodoItem({isCompleted, isEditable, dueDate, setDueDate, title, s
                     </div>
                 </div>
                 <div className={styles.grid2col}>
-                    <input className={styles.todoContent}
+                    <input className={styles.todoContentEditable}
                            type={"text"}
                            value={todoContent}
                             onChange={handleContentChange}/>
-                    <input className={styles.todoDueDate}
+                    <input className={styles.todoDueDateEditable}
                            type={"date"}
                            value={todoDueDate}
                             onChange={handleDueDateChange}/>
